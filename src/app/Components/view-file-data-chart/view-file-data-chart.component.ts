@@ -17,7 +17,6 @@ export class ViewFileDataChartComponent implements OnInit {
     { name: 'purple', value: Colors.Purple },
     { name: 'white', value: Colors.White },
     { name: 'black', value: Colors.Black },
-    { name: 'yello', value: Colors.Yellow },
     { name: 'brown', value: Colors.Brown },
     { name: 'grey', value: Colors.Grey },
     { name: 'blue', value: Colors.Blue },

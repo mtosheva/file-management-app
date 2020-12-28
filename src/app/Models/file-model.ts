@@ -16,7 +16,6 @@ export enum Colors {
     White="white",
     Black="black",
     Purple="purple",
-    Yellow="yello",
     Brown="brown",
     Grey="grey"
   }
