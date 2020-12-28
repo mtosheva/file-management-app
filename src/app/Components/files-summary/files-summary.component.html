@@ -1,0 +1,34 @@
+
+    <app-file-upload (getAllFiles)="getFiles()"></app-file-upload>
+    <div class="container">
+
+    <div class="row">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">File date </th>
+                    <th scope="col">File names</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let file of filesList; index as i">
+                    <th scope="row">{{ i + 1 }}</th>
+                    <td>
+                        {{ file.date | date:'medium'}}
+                    </td>
+                    <td>
+                        {{ file.fileName }}
+                    </td>
+                    <td>
+                        <a [routerLink]="" (click)="getFileData(file)">View</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div>
+        
+    </div>
+    

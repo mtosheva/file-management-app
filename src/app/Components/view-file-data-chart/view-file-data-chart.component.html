@@ -1,0 +1,14 @@
+<div class="container">
+    <div class="row">
+        <div *ngIf="hasData" class="col-xs-12">
+            <ngx-charts-bar-vertical-2d [view]="view" [customColors]="myColors" [results]="chartModel" [gradient]="gradient"
+            [xAxis]="showXAxis" [yAxis]="showYAxis" [legend]="showLegend" [showXAxisLabel]="showXAxisLabel"
+            [showYAxisLabel]="showYAxisLabel" [xAxisLabel]="xAxisLabel" [yAxisLabel]="yAxisLabel">
+        </ngx-charts-bar-vertical-2d>
+        </div>
+        <div *ngIf="!hasData">
+            <span><b>File is empty.</b></span>
+        </div>
+ 
+    </div>
+</div>
