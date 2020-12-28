@@ -8,19 +8,15 @@ import { FileMagagementService } from 'src/app/Services/file-magagement/file-mag
   templateUrl: './file-upload.component.html',
   styleUrls: ['./file-upload.component.css']
 })
-export class FileUploadComponent implements OnInit, OnDestroy {
+export class FileUploadComponent implements OnInit {
 
-  // Variable to store shortLink from api response 
   shortLink: string = "";
-  loading: boolean = false; // Flag variable 
-  file: File = null; // Variable to store file 
+  loading: boolean = false; 
+  file: File = null; 
   txtType: string = "text/plain";
   showError: boolean = false;
-  filesList: Array<FileModel> = new Array<FileModel>();
-  subscription: Subscription;
   @Output() getAllFiles: EventEmitter<any> = new EventEmitter();
 
-  // Inject service  
   constructor(private _fileManagemntService: FileMagagementService, private _router: Router) {
 
   }
@@ -28,8 +24,6 @@ export class FileUploadComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
   }
 
-
-  // On file Select 
   onFileSelect(event) {
     this.showError = false;
     if (event.target.files[0].type === this.txtType) {
@@ -40,25 +34,16 @@ export class FileUploadComponent implements OnInit, OnDestroy {
     }
   }
 
-  // OnClick of button Upload 
   onUpload() {
     this.loading = !this.loading;
     console.log(this.file);
     this._fileManagemntService.upload(this.file).subscribe(
-      (event: any) => {
-        if (typeof (event) === 'object') {
-
-          // Short link via api response 
-          this.shortLink = event.link;
-
-          this.loading = false; // Flag variable 
-          this.getAllFiles.emit();
-        }
+      x => {
+          this.loading = false; 
+          this.getAllFiles.emit();      
       }
     );
   }
 
-  ngOnDestroy(){
-  }
 
 }
